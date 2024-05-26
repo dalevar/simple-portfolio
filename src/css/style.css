@@ -28,9 +28,9 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding-top: 4rem;
-  /* padding: 4rem 0; */
 }
 
+/* ===============  Header  =============== */
 .header-profile {
   display: flex;
   justify-content: center;
@@ -101,16 +101,6 @@ body {
   animation: scaleUpDown 3s ease-in-out infinite;
 }
 
-@keyframes scaleUpDown {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-}
-
 .divider-profile {
   height: 1.5rem;
   border: 1px solid rgba(171, 171, 171, 0.5);
@@ -152,13 +142,6 @@ article {
 }
 
 .content {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  align-content: start; */
-  /* width: 900px; */
-
   max-width: 900px;
   width: 100%;
 }
@@ -199,13 +182,13 @@ article {
   color: #ababab;
 }
 
-.send-email {
+.send-email-header {
   display: flex;
   justify-content: flex-start;
   align-items: start;
 }
 
-.send-email p {
+.send-email-header p {
   padding: 1rem 0;
   font-size: 18px;
   font-weight: 400;
@@ -213,12 +196,27 @@ article {
   color: #ababab;
 }
 
+.send-email-header button {
+  display: none;
+}
+
 .keyword {
   height: 1.5rem;
   border: 1px solid rgba(171, 171, 171, 0.5);
   background-color: rgba(171, 171, 171, 0.2);
-  margin: 0 0.5rem;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 5px;
+}
+
+.send-email-header a {
+  padding: 0.2rem 0.5rem;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #ababab;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .send-email a {
@@ -237,9 +235,9 @@ article {
   border: 0.1px solid rgba(171, 171, 171, 0.1);
   background-color: rgba(171, 171, 171, 0.5);
 }
+/* ===============  END Header  =============== */
 
-/* Navbar */
-
+/* ===============  Navbar  =============== */
 nav {
   display: flex;
   justify-content: center;
@@ -324,8 +322,9 @@ nav a {
 .show-navbar {
   opacity: 1;
 }
+/* ===============  END Navbar  =============== */
 
-/* main work content */
+/* ===============  Work/Project Section  =============== */
 .work-content {
   display: flex;
   justify-content: center;
@@ -414,8 +413,9 @@ nav a {
   display: block;
   margin-bottom: 1rem;
 }
+/* ===============  END Work/Project Section  =============== */
 
-/* Services Section */
+/* ===============  Services Section  =============== */
 .service {
   display: flex;
   justify-content: start;
@@ -449,8 +449,9 @@ nav a {
   font-size: 1.25rem;
   color: #ededed;
 }
+/* ===============  END Services Section  =============== */
 
-/* Stack Section */
+/* ===============  Stack Section  =============== */
 .stack-container.slider {
   overflow: hidden;
   position: relative;
@@ -541,35 +542,21 @@ nav a {
   background-color: rgba(171, 171, 171, 0.1);
   border-radius: 6px;
 }
+/* =============== END Stack Section  =============== */
 
-/* Tambahkan keyframes untuk membuat animasi slide */
-@keyframes slideAnimation {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-10%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* contact section */
+/* =============== Contact Section  =============== */
 .contact-content {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin: 0 auto;
   margin-top: 4rem;
   border: 1px solid rgba(171, 171, 171, 0.5);
   background-color: rgba(171, 171, 171, 0.1);
   padding: 2rem;
-  padding-left: 2rem;
   border-radius: 16px;
   max-width: 900px;
-  z-index: 2;
   overflow: hidden;
 }
 
@@ -585,15 +572,11 @@ nav a {
 }
 
 .contact-content:hover .contact-img {
-  transform: translate(-12%, -10%);
+  transform: translate(12%, 25%);
 }
 
 .contact-img {
   width: 40%;
-  margin-left: 10%;
-  margin-right: -10%;
-  margin-bottom: -60%;
-  margin-top: 10%;
   border: 1px solid rgba(171, 171, 171, 0.5);
   background-color: rgba(171, 171, 171, 0.1);
   border-radius: 8px;
@@ -604,6 +587,7 @@ nav a {
 .press-text {
   font-size: 16px;
   font-weight: 200;
+  margin-left: 10px;
   color: rgba(171, 171, 171, 0.8);
 }
 
@@ -611,7 +595,7 @@ nav a {
   border: 1px solid rgba(171, 171, 171, 0.5);
   background-color: rgba(171, 171, 171, 0.1);
   padding: 0.5rem 1rem;
-  margin-right: 1rem;
+  margin-top: 1rem;
   border-radius: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
@@ -625,8 +609,9 @@ nav a {
   color: #ededed;
   transition: background-color 0.3s, color 0.3s;
 }
+/* =============== END Contact  =============== */
 
-/* Footer section */
+/* =============== Footer section  =============== */
 footer {
   display: flex;
   justify-content: center;
@@ -646,31 +631,34 @@ footer {
   padding: 1rem;
   width: 900px;
 }
+/* =============== END Footer =============== */
 
-/* Modal Get In Touch */
+/* =============== MODAL =============== */
 .modal {
   display: none;
   position: fixed;
-  z-index: 888;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
-  /* height: 100%; */
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  animation: fadeIn 0.8s ease;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
 }
 
 .modal-content {
+  position: relative;
   background-color: rgba(7, 7, 7, 1);
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 40%;
-  border-radius: 16px;
+  width: 80%;
   max-width: 600px;
-  box-sizing: border-box;
-  /* animation: slideIn 0.3s ease; */
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease;
 }
 
 .modal-content img {
@@ -705,8 +693,9 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
+/* =============== END MODAL =============== */
 
-/* Form Get In Touch */
+/* ===============  Form Modal =============== */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -744,7 +733,7 @@ footer {
   width: 100%;
   border: 1px solid rgba(171, 171, 171, 0.5);
   padding: 0.5rem 1rem;
-  background-color: rgba(171, 171, 171, 1);
+  background-color: rgba(255, 255, 255, 1);
   margin-top: 1rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -755,16 +744,134 @@ footer {
 }
 
 .btn-send:hover {
-  background-color: rgba(171, 171, 171, 0.3);
-  color: #ededed;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
   transition: 0.3s, color 0.3s;
 }
 
-/* Fade-out and slide-up animation for closing modal */
 .fade-out {
-  animation: fadeOut 0.3s ease;
+  animation: fadeOut 0.3s forwards;
 }
-/* Animation Keyframes */
+/* =============== END Form Modal =============== */
+
+/* =============== Responsive Styles  ===============*/
+@media (max-width: 900px) {
+  .send-email-header button {
+    display: block;
+  }
+
+  .press-text,
+  .send-email-header p,
+  .contact-img {
+    display: none;
+  }
+
+  .btn-get {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .status-indicator,
+  #status-indicator,
+  .divider-profile {
+    display: none;
+  }
+  .contact-img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-indicator,
+  #status-indicator,
+  .divider-profile {
+    display: none;
+  }
+  .img-profile {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title-profile h1 {
+    font-size: 1.2rem;
+  }
+
+  .title-profile p {
+    font-size: 0.7rem;
+  }
+
+  .head-title-primary,
+  .head-title-secondary {
+    font-size: 1.2rem;
+  }
+
+  .title-primary,
+  .title-secondary {
+    font-size: 1.2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .service img {
+    width: 50px;
+    padding-top: 0.5rem;
+  }
+
+  .service-info h3 {
+    font-size: 1rem;
+  }
+
+  .service-info p {
+    font-size: 0.8rem;
+  }
+
+  .stack-link {
+    font-size: 0.8rem;
+  }
+
+  .contact-content {
+    padding: 1.5rem;
+  }
+
+  .btn-get {
+    font-size: 14px;
+  }
+
+  footer {
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+}
+/* =============== END Responsive Styles =============== */
+
+/* =============== Animation Keyframes =============== */
+@keyframes scaleUpDown {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -800,23 +907,4 @@ footer {
     transform: translateY(-50px);
   }
 }
-
-/* Responsive Styles */
-@media (max-width: 860px) {
-  .contact-img {
-    max-width: 40%;
-    margin-right: -10%;
-    margin-bottom: -60%;
-    margin-top: 15%;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-content {
-    padding: 1.5rem; /* Mengurangi padding untuk layar yang lebih kecil */
-  }
-
-  .btn-get {
-    font-size: 14px; /* Mengurangi font-size untuk layar yang lebih kecil */
-  }
-}
+/* =============== END Animation keyframes =============== */

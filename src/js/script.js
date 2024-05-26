@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Navbar show/hide on scroll
+  // Navbar show/hide
   const navbar = document.getElementById("navbar");
   let lastScrollTop = 0;
 
@@ -16,15 +16,136 @@ document.addEventListener("DOMContentLoaded", function () {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
   });
+  // END Navbar show/hide
 
-  // 'Back to Top' button smooth scroll
+  // 'Back to Top'
   document
     .querySelector(".back-to-top a")
     .addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+  // END 'Back to Top'
+
+  // MODAL
+  const modal = document.getElementById("contactModal");
+  const buttons = document.querySelectorAll("#btn-modal-1, #btn-modal-2");
+  const span = document.getElementsByClassName("close")[0];
+
+  // Function to open the modal
+  function openModal() {
+    modal.style.display = "block";
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    modal.classList.add("fade-out");
+    setTimeout(() => {
+      modal.style.display = "none";
+      modal.classList.remove("fade-out");
+    }, 300);
+  }
+
+  // menambahkan event listener untuk setiap button
+  buttons.forEach((button) => {
+    button.addEventListener("click", openModal);
+  });
+
+  span.addEventListener("click", closeModal);
+  window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  });
+  // END MODAL
 });
+
+// Fungsi ketika tombol 's' ditekan
+function handleKeyPress(event) {
+  if (event.key === "s" || event.key === "S") {
+    window.location.href = "mailto:johndale@example.com";
+  }
+}
+// Tambahkan event listener untuk menangkap tombol yang ditekan
+document.addEventListener("keydown", handleKeyPress);
+// END Fungsi ketika tombol 's' ditekan
+
+// Fungsi untuk menggeser slider dengan mouse
+const projectSlider = document.querySelector(".projects-container");
+const projects = document.querySelector(".projects");
+
+const stackSlider = document.querySelector(".stack-container");
+const stacks = document.querySelector(".stacks");
+
+let isPressed = false;
+let startX;
+let scrollLeft;
+
+// Stack Slider Function
+stackSlider.addEventListener("mousedown", (e) => {
+  isPressed = true;
+  startX = e.pageX - stackSlider.offsetLeft;
+  scrollLeft = stackSlider.scrollLeft;
+  stacks.style.animation = "none"; // Hentikan animasi
+  stackSlider.style.cursor = "grabbing";
+});
+
+stackSlider.addEventListener("mouseleave", () => {
+  if (isPressed) {
+    stacks.style.animation = "none";
+  }
+  isPressed = false;
+});
+
+stackSlider.addEventListener("mouseup", () => {
+  if (isPressed) {
+    stacks.style.animation = "none";
+  }
+  isPressed = false;
+  stackSlider.style.cursor = "grab";
+});
+
+stackSlider.addEventListener("mousemove", (e) => {
+  if (!isPressed) return;
+  e.preventDefault();
+  const x = e.pageX - stackSlider.offsetLeft;
+  const walk = (x - startX) * 2; // Tingkatkan nilai untuk menggeser lebih cepat
+  stackSlider.scrollLeft = scrollLeft - walk;
+});
+// END Stack Slider Function
+
+//Project Slider Function
+projectSlider.addEventListener("mousedown", (e) => {
+  isPressed = true;
+  startX = e.pageX - projectSlider.offsetLeft;
+  scrollLeft = projectSlider.scrollLeft;
+  projects.style.animation = "none"; // Hentikan animasi
+  projectSlider.style.cursor = "grabbing";
+});
+
+projectSlider.addEventListener("mouseleave", () => {
+  if (isPressed) {
+    projects.style.animation = "none";
+  }
+  isPressed = false;
+});
+
+projectSlider.addEventListener("mouseup", () => {
+  if (isPressed) {
+    projects.style.animation = "none";
+  }
+  isPressed = false;
+  projectSlider.style.cursor = "grab";
+});
+
+projectSlider.addEventListener("mousemove", (e) => {
+  if (!isPressed) return;
+  e.preventDefault();
+  const x = e.pageX - projectSlider.offsetLeft;
+  const walk = (x - startX) * 2; // Tingkatkan nilai untuk menggeser lebih cepat
+  projectSlider.scrollLeft = scrollLeft - walk;
+});
+// END Project Slider Function
 
 // Data proyek
 const projectsData = [
@@ -78,50 +199,36 @@ const projectsData = [
   },
 ];
 
-// Ambil elemen tempat proyek akan ditampilkan
 const projectsContainer = document.querySelector(".projects");
-
-// Loop melalui data proyek dan tambahkan elemen untuk setiap proyek
 projectsData.forEach((project) => {
-  // Buat elemen proyek
   const projectElement = document.createElement("div");
   projectElement.classList.add("project");
 
-  // Buat gambar proyek
   const imgElement = document.createElement("img");
   imgElement.classList.add("project-img");
   imgElement.src = project.imgSrc;
   imgElement.alt = project.title;
 
-  // Buat info proyek
   const projectInfoElement = document.createElement("div");
   projectInfoElement.classList.add("project-info");
 
-  // Buat tautan proyek
   const linkElement = document.createElement("a");
   linkElement.href = "#";
   linkElement.classList.add("btn-view");
   linkElement.textContent = project.title;
 
-  // Buat ikon tautan
   const iconElement = document.createElement("img");
   iconElement.src = "src/img/icon/arrow.svg";
   iconElement.classList.add("icon-link");
   iconElement.alt = "View Project";
 
-  // Masukkan elemen ikon ke dalam tautan
   linkElement.appendChild(iconElement);
-
-  // Masukkan tautan ke dalam info proyek
   projectInfoElement.appendChild(linkElement);
-
-  // Masukkan gambar dan info proyek ke dalam elemen proyek
   projectElement.appendChild(imgElement);
   projectElement.appendChild(projectInfoElement);
-
-  // Masukkan elemen proyek ke dalam kontainer proyek
   projectsContainer.appendChild(projectElement);
 });
+// END Data proyek
 
 // Service Section Data
 const servicesData = [
@@ -145,44 +252,35 @@ const servicesData = [
   },
 ];
 
-// Ambil elemen tempat layanan akan ditampilkan
 const servicesContainer = document.querySelector(".services");
 
-// Loop melalui data layanan dan tambahkan elemen untuk setiap layanan
 servicesData.forEach((service) => {
-  // Buat elemen service
   const serviceElement = document.createElement("div");
   serviceElement.classList.add("service");
 
-  // Buat ikon service
   const iconElement = document.createElement("img");
   iconElement.src = service.icon;
   iconElement.alt = service.title;
   iconElement.classList.add("icon-service");
 
-  // Buat info service
   const serviceInfoElement = document.createElement("div");
   serviceInfoElement.classList.add("service-info");
 
-  // Buat judul service
   const titleElement = document.createElement("h3");
   titleElement.textContent = service.title;
 
-  // Buat deskripsi service
   const descriptionElement = document.createElement("p");
   descriptionElement.textContent = service.description;
 
-  // Masukkan elemen-elemen ke dalam struktur
   serviceInfoElement.appendChild(titleElement);
   serviceInfoElement.appendChild(descriptionElement);
   serviceElement.appendChild(iconElement);
   serviceElement.appendChild(serviceInfoElement);
-
-  // Masukkan elemen service ke dalam kontainer services
   servicesContainer.appendChild(serviceElement);
 });
+// END Service Section Data
 
-// Tech Stack Section Data
+// Tech Stack Data
 const techStackData = [
   {
     icon: "src/img/icon/content/stack/html.svg",
@@ -200,6 +298,11 @@ const techStackData = [
     description: "Interactivity and functionality",
   },
   {
+    icon: "src/img/icon/content/stack/typescript.svg",
+    name: "TypeScript",
+    description: "JavaScript superset",
+  },
+  {
     icon: "src/img/icon/content/stack/php.svg",
     name: "PHP",
     description: "Server-side scripting language",
@@ -208,6 +311,11 @@ const techStackData = [
     icon: "src/img/icon/content/stack/mysql.svg",
     name: "MySQL",
     description: "Relational database",
+  },
+  {
+    icon: "src/img/icon/content/stack/postgree.svg",
+    name: "PostgreSQL",
+    description: "Object-relational database",
   },
   {
     icon: "src/img/icon/content/stack/laravel.svg",
@@ -245,6 +353,16 @@ const techStackData = [
     description: "JavaScript runtime",
   },
   {
+    icon: "src/img/icon/content/stack/prisma.svg",
+    name: "Prisma",
+    description: "Database toolkit",
+  },
+  {
+    icon: "src/img/icon/content/stack/sequelize.svg",
+    name: "Sequelize",
+    description: "Node.js ORM",
+  },
+  {
     icon: "src/img/icon/content/stack/mongodb.svg",
     name: "MongoDB",
     description: "NoSQL database",
@@ -256,169 +374,37 @@ const techStackData = [
   },
 ];
 
-// Ambil elemen tempat stack teknologi akan ditampilkan
 const stackContainer = document.querySelector(".stacks");
 
-// Loop melalui data stack teknologi dan tambahkan elemen untuk setiap stack
 techStackData.forEach((stack) => {
-  // Buat elemen stack
   const stackElement = document.createElement("div");
   stackElement.classList.add("stack");
 
-  // Buat link stack
   const stackLinkElement = document.createElement("span");
   stackLinkElement.classList.add("stack-link");
-  stackLinkElement.href = "#"; // Add appropriate link if needed
+  stackLinkElement.href = "#";
 
-  // Buat ikon stack
   const iconElement = document.createElement("img");
   iconElement.src = stack.icon;
   iconElement.alt = stack.name;
   iconElement.classList.add("icon-stack");
 
-  // Buat info stack
   const stackInfoElement = document.createElement("div");
   stackInfoElement.classList.add("title-profile");
 
-  // Buat nama stack
   const nameElement = document.createElement("span");
   nameElement.classList.add("title-stack");
   nameElement.textContent = stack.name;
 
-  // Buat deskripsi stack
   const descriptionElement = document.createElement("span");
   descriptionElement.classList.add("text-stack");
   descriptionElement.textContent = stack.description;
 
-  // Masukkan elemen-elemen ke dalam struktur
   stackInfoElement.appendChild(nameElement);
   stackInfoElement.appendChild(descriptionElement);
   stackLinkElement.appendChild(iconElement);
   stackLinkElement.appendChild(stackInfoElement);
   stackElement.appendChild(stackLinkElement);
-
-  // Masukkan elemen stack ke dalam kontainer stack
   stackContainer.appendChild(stackElement);
 });
-
-// Get the modal
-const modal = document.getElementById("contactModal");
-
-// Get the button that opens the modal
-const btn = document.querySelector(".btn-get");
-
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-
-// Function to open the modal
-function openModal() {
-  modal.style.display = "block";
-}
-
-// Function to close the modal
-function closeModal() {
-  modal.classList.add("fade-out"); // Add fade-out animation class
-  setTimeout(() => {
-    modal.style.display = "none"; // Hide modal after animation completes
-    modal.classList.remove("fade-out"); // Remove animation class for next open
-  }, 100); // Adjust timing to match animation duration
-}
-
-// Event listener for opening the modal
-btn.addEventListener("click", openModal);
-
-// Event listener for closing the modal when clicking on <span> (x)
-span.addEventListener("click", closeModal);
-
-// Event listener for closing the modal when clicking anywhere outside of the modal
-window.addEventListener("click", function (event) {
-  if (event.target == modal) {
-    closeModal();
-  }
-});
-
-// Function to handle key press event for sending email when 's' or 'S' key is pressed
-function handleKeyPress(event) {
-  if (event.key === "s" || event.key === "S") {
-    window.location.href = "mailto:johndale@example.com";
-  }
-}
-
-// Add event listener for keydown event
-document.addEventListener("keydown", handleKeyPress);
-
-// Slider untuk Project Section
-const projectSlider = document.querySelector(".projects-container");
-const projects = document.querySelector(".projects");
-
-// Slider untuk Stack Section
-const stackSlider = document.querySelector(".stack-container");
-const stacks = document.querySelector(".stacks");
-
-let isPressed = false;
-let startX;
-let scrollLeft;
-
-// Stack Slider Function
-stackSlider.addEventListener("mousedown", (e) => {
-  isPressed = true;
-  startX = e.pageX - stackSlider.offsetLeft;
-  scrollLeft = stackSlider.scrollLeft;
-  stacks.style.animation = "none"; // Hentikan animasi
-  stackSlider.style.cursor = "grabbing";
-});
-
-stackSlider.addEventListener("mouseleave", () => {
-  if (isPressed) {
-    stacks.style.animation = "none";
-  }
-  isPressed = false;
-});
-
-stackSlider.addEventListener("mouseup", () => {
-  if (isPressed) {
-    stacks.style.animation = "none";
-  }
-  isPressed = false;
-  stackSlider.style.cursor = "grab";
-});
-
-stackSlider.addEventListener("mousemove", (e) => {
-  if (!isPressed) return;
-  e.preventDefault();
-  const x = e.pageX - stackSlider.offsetLeft;
-  const walk = (x - startX) * 2; // Tingkatkan nilai untuk menggeser lebih cepat
-  stackSlider.scrollLeft = scrollLeft - walk;
-});
-
-//Project Slider Function
-projectSlider.addEventListener("mousedown", (e) => {
-  isPressed = true;
-  startX = e.pageX - projectSlider.offsetLeft;
-  scrollLeft = projectSlider.scrollLeft;
-  projects.style.animation = "none"; // Hentikan animasi
-  projectSlider.style.cursor = "grabbing";
-});
-
-projectSlider.addEventListener("mouseleave", () => {
-  if (isPressed) {
-    projects.style.animation = "none";
-  }
-  isPressed = false;
-});
-
-projectSlider.addEventListener("mouseup", () => {
-  if (isPressed) {
-    projects.style.animation = "none";
-  }
-  isPressed = false;
-  projectSlider.style.cursor = "grab";
-});
-
-projectSlider.addEventListener("mousemove", (e) => {
-  if (!isPressed) return;
-  e.preventDefault();
-  const x = e.pageX - projectSlider.offsetLeft;
-  const walk = (x - startX) * 2; // Tingkatkan nilai untuk menggeser lebih cepat
-  projectSlider.scrollLeft = scrollLeft - walk;
-});
+// END Tech Stack Data

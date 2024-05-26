@@ -24,7 +24,7 @@
                 </div>
                 <div class="status">
                     <span class="status-indicator"></span>
-                    <p>Available for Work</p>
+                    <p id="status-indicator">Available for Work</p>
                     <div class="divider-profile"></div>
                     <div class="social">
                         <a href="https://www.instagram.com/miffdal" target="_blank"><img
@@ -43,7 +43,8 @@
                     now. I have worked with clients from all over the world and have helped them achieve their business
                     goals. I am passionate about my work and I am always looking for new opportunities to learn and
                     grow.</p>
-                <div class="send-email">
+                <div class="send-email-header">
+                    <button class="btn-get" id="btn-modal-1" type="button">Get In Touch</button>
                     <p>Press <a href="#" class="keyword">S</a> anytime to send me an email</p>
                 </div>
             </article>
@@ -125,12 +126,12 @@
         <aside class="contact-content container" id="contact">
             <div class="content">
                 <img src="src/img/icon/navbar/contact.svg" class="icon-content" alt="contact">
-                <h2 class="title-primary">Let's Work Together?
-                </h2>
-                <p>Now that you've come this far, Here are some of the ways you can get in touch with me.</p>
+                <h2 class="title-primary">Let's Work Together?</h2>
+                <p>Now that you've come this far, here are some of the ways you can get in touch with me. Let's work
+                    together on your next website?</p>
                 <div class="send-email">
-                    <button class="btn-get" type="button">Get In Touch</button>
-                    <span class="press-text">Or Press <a href="#" class="keyword">S</a>
+                    <button class="btn-get" id="btn-modal-2" type="button">Get In Touch</button>
+                    <span class="press-text">Or Press <a href="#" class="keyword">S</a></span>
                 </div>
             </div>
             <img src="src/img/content/contact/contact-img.png" class="contact-img" alt="">
@@ -140,7 +141,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>© 2024 John Dale. All Rights Reserved.</p>
+            <p>&#169; 2024 <strong>John Dale</strong>. All Rights Reserved.</p>
             <div class="social">
                 <a href="https://www.instagram.com/miffdal" target="_blank"><img
                         src="src/img/icon/profile/instagram.svg" alt="Instagram"></a>
@@ -150,7 +151,6 @@
                         alt="github"></a>
             </div>
         </div>
-
     </footer>
 
     <!-- Modal Get In Touch -->
@@ -159,15 +159,14 @@
             <span class="close">&times;</span>
             <img src="src/img/icon/bye.svg" alt="">
             <h2>Get In Touch</h2>
-            <p>Fill in the form below, and I'll reach out to your as soon as humanly possible.</p>
+            <p>Fill in the form below, and I'll reach out to you as soon as possible.</p>
             <form action="">
                 <div class="form-group">
                     <div class="user-email">
                         <input type="text" id="name" name="name" class="form-input" placeholder="Name">
                         <input type="email" id="email" name="email" class="form-input" placeholder="Email">
                     </div>
-                    <textarea name="message" id="message" class="form-input" placeholder="Message"
-                        minlength=""></textarea>
+                    <textarea name="message" id="message" class="form-input" placeholder="Message"></textarea>
                     <button class="btn-send" type="button">Send</button>
                 </div>
             </form>

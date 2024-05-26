@@ -347,40 +347,78 @@ function handleKeyPress(event) {
 // Add event listener for keydown event
 document.addEventListener("keydown", handleKeyPress);
 
-const slider = document.querySelector(".stack-container");
+// Slider untuk Project Section
+const projectSlider = document.querySelector(".projects-container");
+const projects = document.querySelector(".projects");
+
+// Slider untuk Stack Section
+const stackSlider = document.querySelector(".stack-container");
 const stacks = document.querySelector(".stacks");
 
 let isPressed = false;
 let startX;
 let scrollLeft;
 
-slider.addEventListener("mousedown", (e) => {
+// Stack Slider Function
+stackSlider.addEventListener("mousedown", (e) => {
   isPressed = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
+  startX = e.pageX - stackSlider.offsetLeft;
+  scrollLeft = stackSlider.scrollLeft;
   stacks.style.animation = "none"; // Hentikan animasi
-  slider.style.cursor = "grabbing";
+  stackSlider.style.cursor = "grabbing";
 });
 
-slider.addEventListener("mouseleave", () => {
+stackSlider.addEventListener("mouseleave", () => {
   if (isPressed) {
     stacks.style.animation = "none";
   }
   isPressed = false;
 });
 
-slider.addEventListener("mouseup", () => {
+stackSlider.addEventListener("mouseup", () => {
   if (isPressed) {
     stacks.style.animation = "none";
   }
   isPressed = false;
-  slider.style.cursor = "grab";
+  stackSlider.style.cursor = "grab";
 });
 
-slider.addEventListener("mousemove", (e) => {
+stackSlider.addEventListener("mousemove", (e) => {
   if (!isPressed) return;
   e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
+  const x = e.pageX - stackSlider.offsetLeft;
   const walk = (x - startX) * 2; // Tingkatkan nilai untuk menggeser lebih cepat
-  slider.scrollLeft = scrollLeft - walk;
+  stackSlider.scrollLeft = scrollLeft - walk;
+});
+
+//Project Slider Function
+projectSlider.addEventListener("mousedown", (e) => {
+  isPressed = true;
+  startX = e.pageX - projectSlider.offsetLeft;
+  scrollLeft = projectSlider.scrollLeft;
+  projects.style.animation = "none"; // Hentikan animasi
+  projectSlider.style.cursor = "grabbing";
+});
+
+projectSlider.addEventListener("mouseleave", () => {
+  if (isPressed) {
+    projects.style.animation = "none";
+  }
+  isPressed = false;
+});
+
+projectSlider.addEventListener("mouseup", () => {
+  if (isPressed) {
+    projects.style.animation = "none";
+  }
+  isPressed = false;
+  projectSlider.style.cursor = "grab";
+});
+
+projectSlider.addEventListener("mousemove", (e) => {
+  if (!isPressed) return;
+  e.preventDefault();
+  const x = e.pageX - projectSlider.offsetLeft;
+  const walk = (x - startX) * 2; // Tingkatkan nilai untuk menggeser lebih cepat
+  projectSlider.scrollLeft = scrollLeft - walk;
 });

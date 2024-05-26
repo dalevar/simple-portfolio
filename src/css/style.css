@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: "Robot", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   background-color: #000;
   color: #eee;
   font-size: 16px;
@@ -24,6 +24,7 @@ body {
 }
 
 .container {
+  width: 90%;
   max-width: 900px;
   margin: 0 auto;
   padding-top: 4rem;
@@ -51,7 +52,7 @@ body {
 
 .title-profile h1 {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #ededed;
 }
 
@@ -151,11 +152,29 @@ article {
 }
 
 .content {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  align-content: start;
+  align-content: start; */
+  /* width: 900px; */
+
+  max-width: 900px;
+  width: 100%;
+}
+
+.head-title-primary {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.3em;
+  color: #ededed;
+}
+
+.head-title-secondary {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.3em;
+  color: #ababab;
 }
 
 .title-primary {
@@ -302,23 +321,6 @@ nav a {
   color: #ababab;
 }
 
-.tooltip {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-/* CSS to show tooltip when hovering over the link */
-.nav a:hover + .tooltip {
-  opacity: 1;
-}
-
 .show-navbar {
   opacity: 1;
 }
@@ -327,28 +329,23 @@ nav a {
 .work-content {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem; */
+  align-items: flex-start;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .projects-container.slider {
-  /* overflow-x: auto;
-  display: flex;
-  justify-content: center;
-   */
   overflow: hidden;
   position: relative;
-  width: 900px;
+  width: 100%;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  margin-top: 1rem;
 }
 
 .projects {
@@ -357,28 +354,14 @@ nav a {
   justify-content: flex-start;
   align-items: center;
   grid-gap: 1rem;
-  margin-top: 0.5rem;
   transition: transform 0.5s ease;
-  width: 900px;
-  /* width: 100%;
-  overflow-x: auto;
-  display: flex;
-  flex-wrap: wrap;
-  grid-gap: 1rem;
-  z-index: 1;
-  padding: 1rem;
-  border: 1px solid rgba(171, 171, 171, 0.5);
-  background-color: rgba(171, 171, 171, 0.5);
-  margin-top: 0.5rem;
-  border-radius: 24px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  cursor: grab; */
+  animation: slideAnimation 3s ease infinite;
+  cursor: grab;
+  padding-bottom: 1rem;
 }
 
 .project {
   min-width: max-content;
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
@@ -387,14 +370,6 @@ nav a {
   padding: 1rem;
   border-radius: 10px;
   transition: background-color 0.3s, transform 0.3s;
-  /* background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  max-width: 300px;
-  text-align: start;
-  transition: transform 0.3s; */
 }
 
 .project:hover {
@@ -410,8 +385,8 @@ nav a {
 }
 
 .project-info {
-  /* padding: 10px 20px;
-   */
+  padding-top: 10px;
+  cursor: pointer;
 }
 
 .project-info a {
@@ -437,6 +412,7 @@ nav a {
   width: 50px;
   height: 50px;
   display: block;
+  margin-bottom: 1rem;
 }
 
 /* Services Section */
@@ -478,7 +454,7 @@ nav a {
 .stack-container.slider {
   overflow: hidden;
   position: relative;
-  width: 900px;
+  width: 100%;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
@@ -489,12 +465,11 @@ nav a {
 .stack-content {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.description-stack {
-  width: 900px;
+  align-items: flex-start;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 .stacks {
@@ -505,13 +480,13 @@ nav a {
   grid-gap: 1rem;
   margin-top: 0.5rem;
   transition: transform 0.5s ease;
-  width: 900px;
   animation: slideAnimation 3s ease infinite;
+  padding-bottom: 1rem;
+  cursor: grab;
 }
 
 .stack {
   min-width: max-content;
-  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
@@ -563,7 +538,6 @@ nav a {
   display: inline;
   margin: 0 auto;
   padding: 0.5rem;
-  /* border: 1px solid rgba(171, 171, 171, 0.5); */
   background-color: rgba(171, 171, 171, 0.1);
   border-radius: 6px;
 }
@@ -585,8 +559,8 @@ nav a {
 .contact-content {
   position: relative;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   margin: 0 auto;
   margin-top: 4rem;
   border: 1px solid rgba(171, 171, 171, 0.5);
@@ -594,7 +568,7 @@ nav a {
   padding: 2rem;
   padding-left: 2rem;
   border-radius: 16px;
-  width: 900px;
+  max-width: 900px;
   z-index: 2;
   overflow: hidden;
 }
@@ -618,7 +592,8 @@ nav a {
   width: 40%;
   margin-left: 10%;
   margin-right: -10%;
-  margin-bottom: -20%;
+  margin-bottom: -60%;
+  margin-top: 10%;
   border: 1px solid rgba(171, 171, 171, 0.5);
   background-color: rgba(171, 171, 171, 0.1);
   border-radius: 8px;
@@ -653,11 +628,13 @@ nav a {
 
 /* Footer section */
 footer {
-  width: 900px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0 1rem;
+  margin-top: 1rem;
   margin-bottom: 7rem;
 }
 
@@ -665,6 +642,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow-x: auto;
   padding: 1rem;
   width: 900px;
 }
@@ -820,5 +798,25 @@ footer {
   }
   to {
     transform: translateY(-50px);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 860px) {
+  .contact-img {
+    max-width: 40%;
+    margin-right: -10%;
+    margin-bottom: -60%;
+    margin-top: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content {
+    padding: 1.5rem; /* Mengurangi padding untuk layar yang lebih kecil */
+  }
+
+  .btn-get {
+    font-size: 14px; /* Mengurangi font-size untuk layar yang lebih kecil */
   }
 }

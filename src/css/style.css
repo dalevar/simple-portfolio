@@ -189,7 +189,6 @@ article {
 }
 
 .send-email-header p {
-  padding: 1rem 0;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.8em;
@@ -324,6 +323,18 @@ nav a {
 }
 /* ===============  END Navbar  =============== */
 
+/* ===============  About Section  =============== */
+.about-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  margin: 0 auto;
+  /* margin-top: 4rem; */
+  /* padding: 1rem; */
+  max-width: 900px;
+  overflow: hidden;
+}
+
 /* ===============  Work/Project Section  =============== */
 .work-content {
   display: flex;
@@ -331,7 +342,8 @@ nav a {
   align-items: flex-start;
   max-width: 100%;
   overflow-x: auto;
-  padding: 0 1rem;
+  padding-top: 2rem;
+  /* padding: 0 1rem; */
   margin-top: 1rem;
 }
 
@@ -469,7 +481,7 @@ nav a {
   align-items: flex-start;
   max-width: 100%;
   overflow-x: auto;
-  padding: 0 1rem;
+  padding-top: 2rem;
   margin-top: 1rem;
 }
 
